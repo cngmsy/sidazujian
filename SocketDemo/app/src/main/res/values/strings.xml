@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SocketDemo</string>
+    <string name="notifyMsg">当前应用缺少必要权限,请点击\"设置\"-\"权限\"-\"打开权限\"</string>
+</resources>
