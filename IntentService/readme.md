@@ -1,0 +1,5 @@
+IntentServicer多次请求网络
+
+#实现的大致思路是
+###在Activity中通过不同的IntentAction来实现开启不同的service组件
+###Service中根据接受到的不同IntentAction来处理不同 的逻辑，处理完成之后通过广播传递到Activity
