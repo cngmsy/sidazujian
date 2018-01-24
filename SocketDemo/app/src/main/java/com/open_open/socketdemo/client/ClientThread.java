@@ -29,6 +29,7 @@ public class ClientThread extends Thread {
 
     Gson mGson;
 
+
     public ClientThread(Handler handler) {
         mSendHandler = handler;
         mGson = new Gson();
@@ -42,8 +43,8 @@ public class ClientThread extends Thread {
             //创建socket
             mSocket = new Socket(Constants.HOST, Constants.PORT);
             //获取到读写对象
-            mPrintWriter = new PrintWriter(mSocket.getOutputStream());
-            mBufferedReader = new BufferedReader(new InputStreamReader(mSocket.getInputStream()));
+            mPrintWriter = new PrintWriter(mSocket.getOutputStream());//写消息发送给服务端
+            mBufferedReader = new BufferedReader(new InputStreamReader(mSocket.getInputStream()));//读取服务端发来的消息
 
             //新开线程读取消息 并发送消息
             new Thread() {
@@ -68,7 +69,7 @@ public class ClientThread extends Thread {
             }.start();
 
             //当前线程创建 handler
-            Looper.prepare();
+            Looper.prepare();//handleMessage用来接收消息的
             mWriteHandler = new Handler() {
                 @Override
                 public void handleMessage(Message msg) {

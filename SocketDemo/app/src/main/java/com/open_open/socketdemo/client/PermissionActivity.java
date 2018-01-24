@@ -111,6 +111,8 @@ public abstract class PermissionActivity extends AppCompatActivity {
      * @param requestCode   申请的权限回调结果
      * @param permissions
      * @param grantResults
+     *
+     *
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,

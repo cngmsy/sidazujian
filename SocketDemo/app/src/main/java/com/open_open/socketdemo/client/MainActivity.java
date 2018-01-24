@@ -56,7 +56,7 @@ public class MainActivity extends PermissionActivity {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter = new ChatAdapter(getDefaultData()));
-
+        //通过构造方法传递handler对象
         mClientThread = new ClientThread(mHandler);
         mClientThread.start();
 
@@ -133,13 +133,14 @@ public class MainActivity extends PermissionActivity {
         Transmission trans = new Transmission();
         trans.itemType = Constants.CHAT_SEND;
         trans.content = mEtContent.getText().toString();
-        trans.transmissionType = Constants.TRANSFER_STR;
+        trans.transmissionType = Constants.TRANSFER_STR;//传输的是字符串类型
 
         Message message = new Message();
         message.what = Constants.SEND_MSG;
         message.obj = mGson.toJson(trans);
 
         if (mClientThread.getWriteHandler() != null) {
+            //在这里发送的SEND_MSG
             mClientThread.getWriteHandler().sendMessage(message);
             mEtContent.setText("");
         }

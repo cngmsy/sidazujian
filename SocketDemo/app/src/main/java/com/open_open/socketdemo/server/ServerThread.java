@@ -73,7 +73,8 @@ public class ServerThread implements Runnable {
                             it.remove();
                         }
                     }
-                } else {
+                } //下面的else不用看,这个是发送文件的时候用的
+                else {
                     long fileLength = trans.fileLength;
                     long transLength = trans.transLength;
                     if (mCreateFile) {
